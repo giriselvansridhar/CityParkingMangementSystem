@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            color: rgb(45, 45, 71);
+        }
+        .logo-img {
+            height: 60px;
+        }
+        .container {
+            max-width: 500px;
+        }
+        .header-text {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+        .sub-text {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            color: #6c757d;
+            text-align: center;
+        }
+        .otp-input {
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            width: 50px;
+            height: 50px;
+            margin: 0 5px;
+        }
+        .bottom-section {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            
+            padding: 15px;
+           
+            text-align: center;
+        }
+        .btn-primary {
+            font-size: 1.2rem;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .back-link {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .back-link i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-white shadow-sm px-3">
+        <a class="navbar-brand d-flex align-items-center">
+            <img src="https://media.istockphoto.com/id/1349223345/vector/car-parking-vector-icon-parking-sign.jpg?s=612x612&w=0&k=20&c=vU7b48VYPukuwPhEvwOm8pKfizX3XLi3EGOrWMiYg2g=" class="logo-img me-2">
+            CITY PARKING MANAGEMENT SYSTEM
+        </a>
+    </nav>
+
+    <!-- Back Link and Title -->
+    <div class="container mt-4">
+        <div class="container mt-4 text-start">
+            <a href="{% url 'Login' %}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i> Back
+            </a>
+        </div>
+        
+        
+    </div>
+    
+    <!-- OTP Form -->
+    <div class="container mt-4">
+        <h3 class="header-text">Enter Verification Code</h3>
+        <p class="sub-text">OTP Sent to {{ Phoneno }}
+        </p>
+
+       
+            {% csrf_token %}
+            <div class="d-flex justify-content-center">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp1">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp2">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp3">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp4">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp5">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp6">
+            </div>
+        
+    </div>
+
+    <!-- Fixed Bottom Section -->
+    <div class="bottom-section">
+        <p class="text-muted">
+            By continuing, you agree to receive important communications such as OTP and payment details.
+        </p>
+        <button class="btn btn-primary" type="submit">Next</button>
+    </div>
+</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
