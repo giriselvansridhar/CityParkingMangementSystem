@@ -74,12 +74,22 @@
 
     <!-- Form Section -->
     <div class="container mt-4">
-        <h3 class="header-text">What's your number?</h3>
+        <h3 class="header-text">Sign up</h3>
         <p class="sub-text">Enter Your Phone Number to proceed</p>
 
         <form method="POST" >
             {% csrf_token %} 
             <input type="tel" class="form-control phone-input mb-3" placeholder="0000000000" maxlength="10" name="Number">
+            <p class="sub-text">PIN Code</p>
+            <div class="d-flex justify-content-center">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp1">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp2">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp3">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp4">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp5">
+                <input type="tel" class="form-control otp-input" maxlength="1" required name="otp6">
+            </div>
+        
        
     </div>
 
@@ -92,7 +102,7 @@
         <button class="btn btn-primary" type="submit" >Continue</button>
     
     
-        <button class="btn btn-danger" type="submit" style="margin-top: 2px;"  name="sup" value="avc">Signup</button>
+        <button class="btn btn-danger" type="submit" style="margin-top: 2px;"  name="sup">Signup</button>
 
     
 </form>
